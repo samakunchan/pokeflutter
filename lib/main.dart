@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pokeflutter/pages/home_page.dart';
 
 void main() {
+  // debugRepaintRainbowEnabled = true;
   runApp(const MainApp());
 }
 
@@ -9,12 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return HomePage();
   }
 }

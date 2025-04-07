@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.17
+  http: ^1.3.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,20 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/roboto/Roboto-Regular.ttf
+        - asset: fonts/roboto/Roboto-bold.ttf
+          weight: 700
+    - family: Poppins
+      fonts:
+        - asset: fonts/poppins/Poppins-Regular.ttf
+        - asset: fonts/poppins/Poppins-Italic.ttf
+          style: italic
+        - asset: fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+  assets:
+    - assets/svgs/
+    - assets/svgs_1/
+    - assets/pngs/
