@@ -9,7 +9,7 @@ void main() {
     runApp(
       DevicePreview(
         enabled: kIsWeb,
-        builder: (BuildContext context) => const MainApp(),
+        builder: (_) => const MainApp(),
       ),
     );
   } else {
