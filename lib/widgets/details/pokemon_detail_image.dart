@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokeflutter/core/models/pokemon_detail.dart';
 import 'package:pokeflutter/utils/themes.dart';
@@ -15,7 +16,7 @@ class PokemonDetailImage extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       children: [
         Positioned(
-          top: Platform.isAndroid ? 70 : 50,
+          top: kIsWeb ? 50 : (Platform.isAndroid ? 70 : 50),
           child: Image.network(
             '$officialArtwork/${pokemonDetail.id}.png',
             width: 250,
