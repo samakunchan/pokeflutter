@@ -57,6 +57,7 @@ class _DetailsPageState extends State<DetailsPage> {
         if (currentPokemonDetail.id < (index + 1)) {
           setState(() {
             currentPokemonDetail = nextPokemonDetail;
+            previousPokemonDetail = previousPokemonDetail;
           });
         }
         loadPreviousAndNextPokemons(currentPokemonDetail);

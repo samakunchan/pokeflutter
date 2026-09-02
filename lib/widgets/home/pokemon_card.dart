@@ -3,7 +3,6 @@ import 'package:pokeflutter/core/models/pokemon_collection_model.dart';
 import 'package:pokeflutter/core/models/pokemon_detail.dart';
 import 'package:pokeflutter/core/services/pokemon_service.dart';
 import 'package:pokeflutter/pages/details_page.dart';
-import 'package:pokeflutter/utils/colors.dart';
 import 'package:pokeflutter/utils/extension.dart';
 import 'package:pokeflutter/utils/text_styles.dart';
 import 'package:pokeflutter/utils/themes.dart';
@@ -16,15 +15,16 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        final PokemonDetail pokemonDetail = await PokemonService.fetchOnePokemon(id: pokemon.id!);
+        final PokemonDetail pokemonDetail =
+            await PokemonService.fetchOnePokemon(id: pokemon.id!);
+        if (!context.mounted) return;
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => DetailsPage(pokemonDetail: pokemonDetail),
+            builder: (_) => DetailsPage(pokemonDetail: pokemonDetail),
           ),
         );
       },
       child: Card(
-        color: kWhiteColor,
         child: Stack(
           children: [
             Align(
@@ -50,7 +50,8 @@ class PokemonCard extends StatelessWidget {
                     '$officialArtwork/${pokemon.id ?? '1'}.png',
                     width: 72,
                     height: 72,
-                    loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+                    loadingBuilder:
+                        (_, Widget child, ImageChunkEvent? loadingProgress) {
                       if (loadingProgress == null) {
                         return child;
                       }

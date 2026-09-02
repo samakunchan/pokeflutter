@@ -11,7 +11,7 @@ class PokemonService {
         Uri.https(
           'pokeapi.co',
           '/api/v2/pokemon',
-          {'limit': '100'},
+          {'limit': '-1'},
         ),
       );
       final Map<String, dynamic> decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
@@ -31,7 +31,8 @@ class PokemonService {
         ),
       );
       final PokemonSpecies pokemonSpecies = await _fetchOnePokemonSpecies(id: id);
-      final String rawDescription = pokemonSpecies.pokemonEntries.where((pok) => pok.version.name == 'red').first.flavorText;
+      final String rawDescription =
+          pokemonSpecies.pokemonEntries.where((pok) => pok.version.name == 'red').first.flavorText;
       final String description = rawDescription.replaceAll('\n', ' ');
       final Map<String, dynamic> decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
       return PokemonDetail.fromJson({...decodedResponse, 'description': description});

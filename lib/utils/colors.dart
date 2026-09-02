@@ -32,7 +32,7 @@ const Color kWhiteColor = Color(0xFFFFFFFF);
 
 /// [String] type - should be in uppercase
 /// ```
-/// Exemple:
+/// Example:
 ///     getType('Dragon') // OK
 ///     getType('dragon') // Not OK
 /// ```

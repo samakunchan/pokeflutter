@@ -9,7 +9,8 @@ const String pngPath = 'assets/pngs';
 /// ```
 /// 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{YOUR_ID_POKEMON}.png'
 /// ```
-const String officialArtwork = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork';
+const String officialArtwork =
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork';
 const double kDefaultRadius = 30;
 const double kCardRadius = 10;
 
@@ -80,13 +81,14 @@ final ThemeData kThemeData = ThemeData(
       shadowColor: WidgetStatePropertyAll(kDarkColor),
     ),
   ),
-  // dialogTheme: DialogTheme(
-  //   shape: kShapeCard.copyWith(
-  //     borderSide: BorderSide(color: kPrimaryColor),
-  //     borderRadius: BorderRadius.circular(20),
-  //   ),
-  //   backgroundColor: kPrimaryColor,
-  //   contentTextStyle: kBody3,
-  //   // insetPadding: const EdgeInsets.all(16),
-  // ),
+  cardTheme: CardThemeData(color: kWhiteColor),
+  dialogTheme: DialogThemeData(
+    shape: kShapeCard.copyWith(
+      borderSide: BorderSide(color: kPrimaryColor),
+      borderRadius: BorderRadius.circular(20),
+    ),
+    backgroundColor: kPrimaryColor,
+    contentTextStyle: kBody3,
+    insetPadding: EdgeInsets.all(100),
+  ),
 );

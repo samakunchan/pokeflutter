@@ -33,7 +33,7 @@ class Pokemon {
   }
 
   static String _getPokemonIdFromUrl(String url) {
-    return url.split('/').where((text) => text.isNotEmpty).last;
+    return url.split('/').where((String text) => text.isNotEmpty).last;
   }
 
   static String _parsePokemonId(String url) {

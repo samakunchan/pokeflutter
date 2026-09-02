@@ -1,0 +1,10 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  color: "#FFFFFF"
+  image: assets/pngs/pokeball-splash.png
+
+  android_12:
+    icon_background_color: "#FFFFFF"
+    image: assets/pngs/pokeball-splash.png

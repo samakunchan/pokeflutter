@@ -27,7 +27,10 @@ class PokemonDetailInfos extends StatelessWidget {
                     SizedBox(
                       width: 30,
                       height: 18,
-                      child: SvgPicture.asset(key: ValueKey('$svgPath/weight.svg'), '$svgPath/weight.svg'),
+                      child: SvgPicture.asset(
+                        key: ValueKey('$svgPath/weight.svg'),
+                        '$svgPath/weight.svg',
+                      ),
                     ),
                     Text('${(pokemonDetail.weight / 10).toString()}kg'),
                   ],
@@ -46,7 +49,10 @@ class PokemonDetailInfos extends StatelessWidget {
                     SizedBox(
                       width: 30,
                       height: 18,
-                      child: SvgPicture.asset(key: ValueKey('$svgPath/ruler.svg'), '$svgPath/ruler.svg'),
+                      child: SvgPicture.asset(
+                        key: ValueKey('$svgPath/ruler.svg'),
+                        '$svgPath/ruler.svg',
+                      ),
                     ),
                     Text('${(pokemonDetail.height / 10).toString()} m'),
                   ],
@@ -67,7 +73,7 @@ class PokemonDetailInfos extends StatelessWidget {
                       children: pokemonDetail.moves
                           .sublist(0, 2)
                           .map(
-                            (detail) => Text(
+                            (PokemonMoves detail) => Text(
                               detail.move.name.ucFirst(),
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(height: 1.2),

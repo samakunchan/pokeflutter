@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokeflutter/pages/home_page.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
-  // debugRepaintRainbowEnabled = true;
   runApp(const MainApp());
 }
 
@@ -11,6 +11,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePage();
+    return Sizer(builder: (_, __, ___) {
+      return HomePage();
+    });
   }
 }

@@ -27,7 +27,10 @@ class PokemonDetailHeader extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: onTap,
-                child: Image.asset(key: ValueKey('$pngPath/arrow-back.png'), '$pngPath/arrow-back.png'),
+                child: Image.asset(
+                  key: ValueKey('$pngPath/arrow-back.png'),
+                  '$pngPath/arrow-back.png',
+                ),
               ),
               Text(name.ucFirst(), style: kHeadline),
             ],

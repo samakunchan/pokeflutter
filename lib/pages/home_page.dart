@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       theme: kThemeData,
       home: GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        onTap: FocusManager.instance.primaryFocus?.unfocus,
         child: Scaffold(
           body: SafeArea(
             child: Padding(
@@ -42,10 +42,12 @@ class _HomePageState extends State<HomePage> {
                         if (sortSelected == SortEnum.none) {
                           results = snapshot.requireData.results;
                         } else if (sortSelected == SortEnum.name) {
-                          snapshot.requireData.results.sort((Pokemon a, Pokemon b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+                          snapshot.requireData.results
+                              .sort((Pokemon a, Pokemon b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
                           results = snapshot.requireData.results;
                         } else if (sortSelected == SortEnum.number) {
-                          snapshot.requireData.results.sort((Pokemon a, Pokemon b) => int.parse(a.id!).compareTo(int.parse(b.id!)));
+                          snapshot.requireData.results
+                              .sort((Pokemon a, Pokemon b) => int.parse(a.id!).compareTo(int.parse(b.id!)));
                           results = snapshot.requireData.results;
                         }
 
@@ -86,11 +88,6 @@ class _HomePageState extends State<HomePage> {
                                         builder: (BuildContext context) => SizedBox(
                                           width: 20,
                                           child: AlertDialog(
-                                            shape: kShapeCard.copyWith(
-                                              borderSide: BorderSide(color: kPrimaryColor),
-                                              borderRadius: BorderRadius.circular(20),
-                                            ),
-                                            backgroundColor: kPrimaryColor,
                                             title: Text('Sort by:', style: kHeadline),
                                             content: StatefulBuilder(
                                               builder: (BuildContext context, StateSetter setStates) {
@@ -130,7 +127,6 @@ class _HomePageState extends State<HomePage> {
                                               },
                                             ),
                                             contentPadding: EdgeInsets.zero,
-                                            insetPadding: EdgeInsets.all(100),
                                           ),
                                         ),
                                       ).then((_) {
@@ -139,11 +135,18 @@ class _HomePageState extends State<HomePage> {
                                     },
                                     child: sortSelected == SortEnum.none
                                         ? SvgPicture.asset(
-                                            key: ValueKey('$svgPath/sort-stand-by-icon.svg'), '$svgPath/sort-stand-by-icon.svg')
+                                            key: ValueKey('$svgPath/sort-stand-by-icon.svg'),
+                                            '$svgPath/sort-stand-by-icon.svg',
+                                          )
                                         : sortSelected == SortEnum.name
-                                            ? SvgPicture.asset(key: ValueKey('$svgPath/sort-name-icon.svg'), '$svgPath/sort-name-icon.svg')
+                                            ? SvgPicture.asset(
+                                                key: ValueKey('$svgPath/sort-name-icon.svg'),
+                                                '$svgPath/sort-name-icon.svg',
+                                              )
                                             : SvgPicture.asset(
-                                                key: ValueKey('$svgPath/sort-number-icon.svg'), '$svgPath/sort-number-icon.svg'),
+                                                key: ValueKey('$svgPath/sort-number-icon.svg'),
+                                                '$svgPath/sort-number-icon.svg',
+                                              ),
                                   ),
                                 ],
                               ),
@@ -159,7 +162,8 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(10),
                                       child: ((isSearchName || isSearchIdParsed) && pokemons.isNotEmpty)
                                           ? GridView.builder(
-                                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                                              gridDelegate:
+                                                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
                                               itemCount: pokemons.length,
                                               itemBuilder: (BuildContext context, int index) => RepaintBoundary(
                                                 child: PokemonCard(
@@ -193,27 +197,4 @@ class _HomePageState extends State<HomePage> {
   bool idParsedMatchSearchText(Pokemon pok) => RegExp(searchText).hasMatch(pok.name);
 
   bool nameMatchSearchText(Pokemon pok) => RegExp(searchText).hasMatch('#${pok.idParsed!}');
-
-  simpleDialog() {
-    return SimpleDialog(
-      title: Text('Sort by:', style: kHeadline, textAlign: TextAlign.center),
-      insetPadding: EdgeInsets.all(100),
-      backgroundColor: kPrimaryColor,
-      shape: kShapeCard.copyWith(borderSide: BorderSide(color: kPrimaryColor)),
-      children: <Widget>[
-        RadioListTile(
-          title: Text('Number'),
-          value: '1',
-          groupValue: 'groupValue',
-          onChanged: (onChanged) {},
-        ),
-        RadioListTile(
-          title: Text('Name'),
-          value: '1',
-          groupValue: 'groupValue',
-          onChanged: (onChanged) {},
-        ),
-      ],
-    );
-  }
 }

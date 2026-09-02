@@ -1,0 +1,12 @@
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/pngs/pokemon-icone.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#DC0A2D"
+  adaptive_icon_foreground: "assets/pngs/pokemon-icone.png"
+  windows:
+    generate: true
+    image_path: "assets/pngs/pokemon-icone.png"
+    icon_size: 48

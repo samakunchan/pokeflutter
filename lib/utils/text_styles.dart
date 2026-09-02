@@ -42,7 +42,7 @@ final TextStyle kBody2 = TextStyle(
   fontFamily: roboto,
   fontWeight: FontWeight.normal,
   fontSize: 12,
-  height: 12 / 16,
+  height: 12 / 10,
 );
 final TextStyle kBody3 = TextStyle(
   fontFamily: roboto,
